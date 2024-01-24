@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: ${artifactId}
+  profiles:
+    active: ${PROFILE:dev}
+  config:
+    import: "configserver:http://${CONFIG_SERVER:localhost:8888}"
