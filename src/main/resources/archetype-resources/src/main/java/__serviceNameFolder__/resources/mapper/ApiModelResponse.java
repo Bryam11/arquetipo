@@ -1,4 +1,4 @@
-package ${package}.${serviceNameFolder.replace('/','.')}.model.mapper;
+package ${package}.${serviceNameFolder.replace('/','.')}.resources.mapper;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

@@ -3,7 +3,7 @@ package ${package}.${serviceNameFolder.replace('/','.')}.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 import lombok.AllArgsConstructor;
 
@@ -56,10 +56,7 @@ public class ${serviceName}ServiceImpl implements ${serviceName}Service
 }
 	@Override
 	public ${serviceName} getById(Integer id) {
-    ${serviceName} domain = ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Repository.findOne(id);
-    if (domain == null) {
-        return null;// not found
-    }
-    return domain;
+    Optional<${serviceName}> domain = ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Repository.findById(id);
+    return domain.orElse(null);
 }
 }

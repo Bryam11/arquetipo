@@ -1,4 +1,4 @@
-{package}.${serviceNameFolder.replace('/','.')}.controller;
+package ${package}.${serviceNameFolder.replace('/','.')}.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 import jdk.jfr.Description;
@@ -15,16 +15,16 @@ import org.springframework.http.ResponseEntity;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import ${package}.${serviceNameFolder.replace('/','.')}.service.{serviceName}Service;
+import ${package}.${serviceNameFolder.replace('/','.')}.service.${serviceName}Service;
 import ${package}.${serviceNameFolder.replace('/','.')}.resources.mapper.ApiModelResponse;
-import ${package}.${serviceNameFolder.replace('/','.')}.resources.dto.{serviceName}DTO;
+import ${package}.${serviceNameFolder.replace('/','.')}.resources.dto.${serviceName}DTO;
 
 @RestController
 @Description("Item Controller")
 @Tag(name = "Item Controller", description = "Controller for Item")
 @RequestMapping("/item")
 @RequiredArgsConstructor
-public class  ${serviceName}CommandsController {
+public class  ${serviceName}Controller {
 
     private final ${serviceName}Service ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Service;
 
@@ -38,7 +38,7 @@ public class  ${serviceName}CommandsController {
             @ApiResponse(responseCode = "500", description = "Internal error", content = {@Content(mediaType = "application/json",
                     schema = @Schema(implementation = ApiModelResponse.class))})
     })
-    public ResponseEntity<ApiModelResponse> getPreBillingValidation(@Valid @RequestBody ${serviceName}DTO ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}) {
+    public ResponseEntity<ApiModelResponse> getPreBillingValidation(@Valid @RequestBody ${serviceName} ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}) {
         ApiModelResponse apiModelResponse = new ApiModelResponse(
                 "200",
                 "OK",
